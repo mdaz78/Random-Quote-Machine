@@ -52,3 +52,21 @@ h1 {
     font-size: 1.25em;
     padding: 10px;
 }
+
+.buttons {
+    background-color: #95b3d7;
+    color: white;
+}
+
+.button-section {
+    margin-top: 15px;
+}
+
+.btn {
+    vertical-align: middle;
+}
+
+.new-quote {
+    font-family: 'Comfortaa', cursive;
+    font-size: 1.35em;
+}
