@@ -60,6 +60,7 @@ h1 {
 
 .button-section {
     margin-top: 15px;
+    margin-bottom: 5px;
 }
 
 .btn {
@@ -69,4 +70,10 @@ h1 {
 .new-quote {
     font-family: 'Comfortaa', cursive;
     font-size: 1.35em;
+}
+
+@media only screen and (max-width: 767px) {
+    h1 {
+        margin-bottom: 50px !important;
+    }
 }
