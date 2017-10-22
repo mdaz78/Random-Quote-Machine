@@ -72,6 +72,10 @@ h1 {
     font-size: 1.35em;
 }
 
+button:hover {
+    color: #eff7f5 !important;
+}
+
 @media only screen and (max-width: 767px) {
     h1 {
         margin-bottom: 50px !important;
