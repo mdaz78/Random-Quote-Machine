@@ -19,18 +19,36 @@ $(document).ready(function() {
                 $(".quote").html('<i class="fa fa-quote-left"></i> ' + quote);
 
                 if(author) {
-                    $(".author").text("- " + author);
+                    $(".authors").text("- " + author);
                 } else {
-                    $(".author").text("- " + unknown);
+                    $(".authors").text("- " + unknown);
                 }
             }
         });
     }
     getNewQuote(); // invoke the function for the first time
 
+    function randomColor() {
+        var x = Math.floor(Math.random() * 256);
+        var y = Math.floor(Math.random() * 256);
+        var z = Math.floor(Math.random() * 256);
+        var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+        document.body.style.background = bgColor;
+        document.getElementById("button1").style.background = bgColor;
+        document.getElementById("button2").style.background = bgColor;
+        document.getElementById("quote-id").style.color = bgColor;
+        document.getElementById("author-id").style.color = bgColor;
+    }
+
     $(".new-quote").on("click", function(event) {
         event.preventDefault(); // stops from moving the screen after clicking the button
         getNewQuote();
+        randomColor();
+        //
+        // var randColor = Math.floor(Math.random() * (color.length - 0 + 1)) + min;
+        // $("body").css("background-color", randColor);
+        // $(".buttons").css("background-color", randColor);
+
     });
 
 });
