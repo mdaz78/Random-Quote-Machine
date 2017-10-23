@@ -44,11 +44,6 @@ $(document).ready(function() {
         event.preventDefault(); // stops from moving the screen after clicking the button
         getNewQuote();
         randomColor();
-        //
-        // var randColor = Math.floor(Math.random() * (color.length - 0 + 1)) + min;
-        // $("body").css("background-color", randColor);
-        // $(".buttons").css("background-color", randColor);
-
     });
 
     $(".tweet-quote").on("click", function(event) {
