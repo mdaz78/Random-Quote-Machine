@@ -3,3 +3,6 @@ An Implementation of the project from [FreeCodeCamp](https://www.freecodecamp.or
 
 ### Screenshot
 ![ScreenShot of the Random Quote machine](/assets/Screenshot.png)
+
+### Live Implementation
+Check out the live version of the code [here](http://random-quote-machine-zafar.surge.sh/)
