@@ -1,4 +1,5 @@
 var newQuoteBtn = document.getElementById("button2");
+var tweet = document.getElementById("button1");
 var quote; // holds the quote recieved from the api call
 var author; // holds the name of the author recieved from the api call
 
@@ -53,4 +54,8 @@ function randomColor() {
 newQuoteBtn.addEventListener("click", function() {
     getNewQuote();
     randomColor();
+});
+
+tweet.addEventListener("click", function() {
+    window.open('http://twitter.com/intent/tweet?text='+ encodeURIComponent(quote + ' - ' + author));
 });
