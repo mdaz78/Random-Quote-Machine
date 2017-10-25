@@ -5,15 +5,17 @@ $(document).ready(function() {
     function getNewQuote() {
 
         var xmlHTTP = new XMLHttpRequest();
-        var url = "https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en";
+        var url = "https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=jsonp&lang=en&jsonp=?";
 
-        xmlHTTP.open('POST', url, true);
+        xmlHTTP.open('GET', url, true);
         xmlHTTP.send();
 
         xmlHTTP.onload = function() {
             if (xmlHTTP.status === 200) {
                 var recieved = xmlHTTP.response;
+                console.log(recieved);
                 recieved = JSON.parse(recieved);
+
                 quote = recieved.quoteText;
                 author = recieved.quoteAuthor;
 
