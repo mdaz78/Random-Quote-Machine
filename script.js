@@ -13,18 +13,22 @@ function getNewQuote() {
     xmlHTTP.onload = function() {
         if (xmlHTTP.status === 200) {
             var recieved = xmlHTTP.response;
-            console.log(recieved);
             recieved = JSON.parse(recieved);
 
             quote = recieved.quoteText;
             author = recieved.quoteAuthor;
 
-            $(".quote").html('<i class="fa fa-quote-left"></i> ' + quote + ' <i class="fa fa-quote-right"></i>');
-            if(author) {
-                $(".authors").text("- " + author);
-            } else {
-                $(".authors").text("- " + "unknown");
-            }
+            // set the value of the quote along with formatting
+            var quoteString = '<i class="fa fa-quote-left"></i> ' + quote + ' <i class="fa fa-quote-right"></i>';
+
+            // display the element
+            document.getElementById("a-quote").innerHTML = quoteString;
+
+            // set the value of author to quoteAuthor if an empty value is not recieved
+            // and display the author name
+            author ? document.getElementById("author-id").innerHTML = " - " + author : document.getElementById("author-id").innerHTML = " - unknown";
+
+
 
         } else {
             console.log(xmlHTTP.status);
