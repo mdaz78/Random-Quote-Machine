@@ -1,3 +1,4 @@
+var newQuoteBtn = document.getElementById("button2");
 var quote; // holds the quote recieved from the api call
 var author; // holds the name of the author recieved from the api call
 
@@ -44,3 +45,8 @@ function randomColor() {
     document.getElementById("quote-id").style.color = bgColor;
     document.getElementById("author-id").style.color = bgColor;
 }
+
+newQuoteBtn.addEventListener("click", function() {
+    getNewQuote();
+    randomColor();
+});
