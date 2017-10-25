@@ -3,29 +3,55 @@ $(document).ready(function() {
     var author; // holds the name of the author recieved from the api call
 
     function getNewQuote() {
-        $.ajax({
-            url: 'http://api.forismatic.com/api/1.0/',
-            jsonp: 'jsonp',
-            dataType: 'jsonp',
-            data: {
-                method: 'getQuote',
-                format: 'jsonp',
-                lang: 'en'
-            },
-            success: function(response) {
-                quote = response.quoteText;
-                author = response.quoteAuthor;
+        // $.ajax({
+        //     url: 'http://api.forismatic.com/api/1.0/',
+        //     jsonp: 'jsonp',
+        //     dataType: 'jsonp',
+        //     data: {
+        //         method: 'getQuote',
+        //         format: 'jsonp',
+        //         lang: 'en'
+        //     },
+        //     success: function(response) {
+        //         quote = response.quoteText;
+        //         author = response.quoteAuthor;
+        //
+        //         $(".quote").html('<i class="fa fa-quote-left"></i> ' + quote);
+        //
+        //         if(author) {
+        //             $(".authors").text("- " + author);
+        //         } else {
+        //             $(".authors").text("- " + unknown);
+        //         }
+        //     }
+        // });
+
+        var xmlHTTP = new XMLHttpRequest();
+        var url = "https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en";
+
+        xmlHTTP.open('POST', url, true);
+        xmlHTTP.send();
+
+        xmlHTTP.onload = function() {
+            if (xmlHTTP.status === 200) {
+                var recieved = xmlHTTP.response;
+                recieved = JSON.parse(recieved);
+                quote = recieved.quoteText;
+                author = recieved.quoteAuthor;
 
                 $(".quote").html('<i class="fa fa-quote-left"></i> ' + quote);
-
                 if(author) {
                     $(".authors").text("- " + author);
                 } else {
-                    $(".authors").text("- " + unknown);
+                    $(".authors").text("- " + "unknown");
                 }
+
+            } else {
+                console.log(xmlHTTP.status);
             }
-        });
+        };
     }
+
     getNewQuote(); // invoke the function for the first time
 
     function randomColor() {
